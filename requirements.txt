@@ -1,6 +1,5 @@
 streamlit==1.22.0
-pandas==2.0.0
+pandas==2.2.3
 numpy==1.25.0
-requests==2.31.0
+requests==2.32.3
 scikit-learn==2.2.2
-Pillow==9.5.0
