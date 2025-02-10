@@ -43,14 +43,14 @@
 # ## ---------------
 
 import streamlit as st
-# pip import pickle
+import pickle
 import numpy as np
 import requests
 import pandas as pd
 
 df1 = pd.read_csv('df1.csv')
 
-# movies = pickle.load(open('movie_list.pkl','rb'))
+movies = pickle.load(open('movie_list.pkl','rb'))
 # similarity = pickle.load(open('similarity.pkl','rb'))
 #
 #
@@ -58,12 +58,13 @@ df1 = pd.read_csv('df1.csv')
 
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_features=5000,stop_words='english')
+df1['tag'] = df1['tag'].fillna('')
 vector = cv.fit_transform(df1['tag'])
 from sklearn.metrics.pairwise import cosine_similarity
 similarity = cosine_similarity(vector)
 
 
-similarity = np.array(similarity)
+#similarity = np.array(similarity)
 
 
 api_key = '36f1b45e581b80df64c376a52b28e353'  # Store API key in a variable
